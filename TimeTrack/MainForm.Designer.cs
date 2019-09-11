@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.trackerList = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -48,8 +49,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 369);
             this.Controls.Add(this.trackerList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Time Tracker";
             this.ResumeLayout(false);
 
         }
