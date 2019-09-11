@@ -66,8 +66,10 @@ namespace TimeTrack
             {
                 string[] arr = str.Split('?');
                 string[] details = arr[1].Split('`');
+                if (details.Length != 4) continue;
                 ProcessTime pt = new ProcessTime(details[0], details[1], ulong.Parse(details[2]));
                 pt.SetTracked(bool.Parse(details[3]));
+                if (pt.GetTime() == 0) continue;
                 savedProcessTime.Add(arr[0], pt);
             }
         }
@@ -81,6 +83,7 @@ namespace TimeTrack
             {
                 if (addedKeys.Contains(key)) continue;
                 ProcessTime pt = processTimes[key];
+                if (pt.GetTime() == 0) continue;
                 collection.Add($"{key}?{pt.ProcessName}`{pt.ProcessTitle}`{pt.GetTime()}`{pt.GetTracked()}");
                 addedKeys.Add(key);
             }
@@ -89,6 +92,7 @@ namespace TimeTrack
             {
                 if (addedKeys.Contains(key)) continue;
                 ProcessTime pt = savedProcessTime[key];
+                if (pt.GetTime() == 0) continue;
                 collection.Add($"{key}?{pt.ProcessName}`{pt.ProcessTitle}`{pt.GetTime()}`{pt.GetTracked()}");
                 addedKeys.Add(key);
             }

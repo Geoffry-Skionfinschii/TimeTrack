@@ -25,7 +25,7 @@ namespace TimeTrack
 
         public string GetTimeFormatted()
         {
-            return $"{(timeInSec / 3600)}:{(timeInSec / 60) % 60}:{timeInSec % 60}";
+            return string.Format("{0:00}:{1:00}:{2:00}", timeInSec/3600, (timeInSec / 60) % 60, timeInSec % 60);
         }
 
         public ulong GetTime()

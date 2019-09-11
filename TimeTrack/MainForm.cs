@@ -50,6 +50,7 @@ namespace TimeTrack
 
         public void UpdateTimestamp(ProcessTime pt)
         {
+            if (IsDisposed) return;
             if(InvokeRequired)
             {
                 Invoke(new Action(() => {
